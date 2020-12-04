@@ -6,6 +6,8 @@ import { ROUTING_KEYS } from '../../helpers/routingKeys';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { clearAnswers } from 'global/Redux/Slices/answersSlice';
+import { queryCache } from 'react-query';
+import { CACHE_KEYS } from '../../helpers/cacheKeys';
 
 type ScoreContentPropsType = {
   answers: StoreAnswerType[];
@@ -23,6 +25,12 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers 
     return acc;
   }, 0);
 
+  const onPlayAgainClick = () => {
+    clearAnswers();
+    // For new question set retrieval, when necessary
+    queryCache.invalidateQueries(CACHE_KEYS.GET_QUESTIONS);
+  };
+
   return (
     <>
       <h1>You scored</h1>
@@ -35,7 +43,7 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers 
           <span>{answer.questionText}</span>
         </div>
       ))}
-      <Link to={ROUTING_KEYS.HOME} onClick={clearAnswers}>
+      <Link to={ROUTING_KEYS.HOME} onClick={onPlayAgainClick}>
         <Button> PLAY AGAIN? </Button>
       </Link>
     </>

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AnswerType, QuestionType } from '../../../helpers/types';
+import { AnswerType, QuestionType } from 'helpers/types';
 
 type AddAnswerPayloadType = {
   question: QuestionType;

@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 import { queryCache } from 'react-query';
-import { CACHE_KEYS } from '../../helpers/cacheKeys';
-import { QuestionService } from '../../services/QuestionService';
+import { CACHE_KEYS } from 'helpers/cacheKeys';
+import { QuestionService } from 'services/QuestionService';
 
 export const withPrefetchedQuestions = (HomeComponent: FC<{}>) => () => {
   const prefetchQuestions = async () => {
