@@ -20,7 +20,7 @@ export const AnswerButtonContent: FC<AnswerButtonPropsType & { addAnswer: () => 
   addAnswer,
 }) => {
   const redirectionUrl =
-    questionIndex + 1 === questionsAmount ? '/grand-finale' : ROUTING_KEYS.QUESTION(questionIndex + 1);
+    questionIndex + 1 === questionsAmount ? ROUTING_KEYS.SCORE : ROUTING_KEYS.QUESTION(questionIndex + 1);
 
   return (
     <Link to={redirectionUrl} onClick={addAnswer}>
