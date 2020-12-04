@@ -1,8 +1,15 @@
 ## Main description
 
-Cra boilerplate to create frontend react applications.
+#### Trivia Game Coding Challenge
 
-## Technological stack
+> Do not use a boilerplate like React Boilerplate or Ignite for this challenge.
+
+I have used my own basic boilerplate that I am using for interviews.
+It is not external, available boilerplate.
+It is my own, I use to save time for project configuration for interview processes.
+Additionally, I had to adjust it to solve this particular problem.
+
+## Technological choices
 
 - ant-design
 - styled-components
@@ -10,7 +17,7 @@ Cra boilerplate to create frontend react applications.
 - cra
 - react
 - react-router
-- apollo with graphql
+- react-query
 - eslint + prettier + husky
 
 ## Directories structure
