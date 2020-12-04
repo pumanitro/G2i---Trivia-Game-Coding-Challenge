@@ -21,5 +21,11 @@ export const withQuestion = (QuestionComponent: FC<QuestionPropsType>) => () => 
     return <Spinner />;
   }
 
-  return <QuestionComponent questionIndex={castedQuestionIndex} question={data[castedQuestionIndex]} />;
+  return (
+    <QuestionComponent
+      questionIndex={castedQuestionIndex}
+      question={data[castedQuestionIndex]}
+      questionsAmount={data.length}
+    />
+  );
 };

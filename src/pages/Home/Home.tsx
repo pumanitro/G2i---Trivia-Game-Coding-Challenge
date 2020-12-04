@@ -1,14 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import { useQuery } from 'react-query';
-import { QuestionService } from 'services/QuestionService';
-import { CACHE_KEYS } from 'helpers/cacheKeys';
 import { Button } from 'antd';
+import { withPrefetchedQuestions } from './withPrefetchedQuestions';
 
-export const Home: FunctionComponent = () => {
-  const { data } = useQuery(CACHE_KEYS.GET_QUESTIONS, QuestionService.getQuestions);
-
-  console.log(data);
-
+export const HomeContent: FunctionComponent = () => {
   return (
     <>
       <h1>Welcome to the Trivia Challenge!</h1>
@@ -18,3 +12,5 @@ export const Home: FunctionComponent = () => {
     </>
   );
 };
+
+export const Home = withPrefetchedQuestions(HomeContent);
