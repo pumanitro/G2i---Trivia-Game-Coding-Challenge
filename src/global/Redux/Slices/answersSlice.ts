@@ -6,7 +6,7 @@ type AddAnswerPayloadType = {
   answer: AnswerType;
 };
 
-type StoreAnswerType = {
+export type StoreAnswerType = {
   questionText: string;
   isAnsweredCorrectly: boolean;
 };
