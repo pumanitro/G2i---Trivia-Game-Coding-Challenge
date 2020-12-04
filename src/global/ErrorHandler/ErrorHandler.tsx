@@ -7,10 +7,9 @@ interface ErrorHandlerState {
 
 interface ErrorHandlerClassProps {
   children: ReactNode;
-  t: (key: string) => string;
 }
 
-class ErrorHandlerClass extends Component<ErrorHandlerClassProps, ErrorHandlerState> {
+export class ErrorHandler extends Component<ErrorHandlerClassProps, ErrorHandlerState> {
   public state = { errorOccurred: false };
 
   componentDidCatch(): void {
@@ -21,7 +20,6 @@ class ErrorHandlerClass extends Component<ErrorHandlerClassProps, ErrorHandlerSt
     if (this.state.errorOccurred) {
       setTimeout(() => window.location.reload(), 5000);
     }
-
 
     return this.state.errorOccurred ? (
       <Alert
@@ -36,5 +34,3 @@ class ErrorHandlerClass extends Component<ErrorHandlerClassProps, ErrorHandlerSt
     );
   }
 }
-
-export const ErrorHandler = ErrorHandlerClass;
