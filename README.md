@@ -9,7 +9,7 @@ It is not external, available boilerplate.
 It is my own, I use to save time for project configuration for interview processes.
 Additionally, I had to adjust it to solve this particular problem.
 
-## Technological choices
+## Technological stack choices
 
 - ant-design
 - styled-components
@@ -18,6 +18,7 @@ Additionally, I had to adjust it to solve this particular problem.
 - react
 - react-router
 - react-query
+- axios
 - eslint + prettier + husky
 
 ## Directories structure
@@ -29,6 +30,10 @@ All code is under /src directory
 - global - components that are used once in a whole application to provide some functionality like RWD provider or layout
 - helpers - functions that can be reused in few places in whole application
 - pages - component responsible for given url adress like /home -> Home.tsx component
+
+## What I haven't done but will consider in different types of project
+
+- using different git handling mechanism like GitFlow
 
 ## Available Scripts
 
