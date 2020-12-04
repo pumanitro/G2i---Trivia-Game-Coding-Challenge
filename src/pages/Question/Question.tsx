@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import { QuestionType } from 'helpers/types';
 import { withQuestion } from './withQuestion';
-import { Button, Card } from 'antd';
+import { Card } from 'antd';
+import { AnswerButton } from './AnswerButton/AnswerButton';
 
 export type QuestionPropsType = {
   questionIndex: number;
@@ -20,10 +21,12 @@ export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question
       <div>
         {questionIndex + 1} of {questionsAmount}
       </div>
-      <div>
-        <Button>No</Button>
-        <Button>Yes</Button>
-      </div>
+      <AnswerButton questionIndex={questionIndex} questionsAmount={questionsAmount}>
+        No
+      </AnswerButton>
+      <AnswerButton questionIndex={questionIndex} questionsAmount={questionsAmount}>
+        Yes
+      </AnswerButton>
     </div>
   );
 };
