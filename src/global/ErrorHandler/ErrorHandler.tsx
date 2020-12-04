@@ -1,6 +1,5 @@
 import React, { ReactNode, Component } from 'react';
 import { Alert } from 'antd';
-import { withTranslation } from 'helpers/withTranslation';
 
 interface ErrorHandlerState {
   errorOccurred: boolean;
@@ -23,13 +22,12 @@ class ErrorHandlerClass extends Component<ErrorHandlerClassProps, ErrorHandlerSt
       setTimeout(() => window.location.reload(), 5000);
     }
 
-    const { t } = this.props;
 
     return this.state.errorOccurred ? (
       <Alert
         type="error"
-        message={t('Global_ErrorHandler_ErrorTitle')}
-        description={t('Global_ErrorHandler_ErrorDescription')}
+        message={'Global Error'}
+        description={'We catched some global error in here :('}
         banner
         showIcon
       />
@@ -39,4 +37,4 @@ class ErrorHandlerClass extends Component<ErrorHandlerClassProps, ErrorHandlerSt
   }
 }
 
-export const ErrorHandler = withTranslation(ErrorHandlerClass);
+export const ErrorHandler = ErrorHandlerClass;
