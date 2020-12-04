@@ -21,12 +21,13 @@ export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question
       <div>
         {questionIndex + 1} of {questionsAmount}
       </div>
-      <AnswerButton questionIndex={questionIndex} questionsAmount={questionsAmount}>
-        No
-      </AnswerButton>
-      <AnswerButton questionIndex={questionIndex} questionsAmount={questionsAmount}>
-        Yes
-      </AnswerButton>
+      <AnswerButton
+        questionIndex={questionIndex}
+        questionsAmount={questionsAmount}
+        question={question}
+        isAnswerTrue={false}
+      />
+      <AnswerButton questionIndex={questionIndex} questionsAmount={questionsAmount} question={question} isAnswerTrue />
     </div>
   );
 };

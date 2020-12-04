@@ -1,17 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AnswerType, QuestionType } from '../../../helpers/types';
 
 type AddAnswerPayloadType = {
-  question: string;
-  isCorrectlyAnswered: boolean;
+  question: QuestionType;
+  answer: AnswerType;
+};
+
+type StoreAnswerType = {
+  questionText: string;
+  isAnsweredCorrectly: boolean;
 };
 
 export const answersSlice = createSlice({
   name: 'answers',
-  initialState: [] as AddAnswerPayloadType[],
+  initialState: [] as StoreAnswerType[],
   reducers: {
-    addAnswer: (state, action: PayloadAction<AddAnswerPayloadType>) => {
+    addAnswer: (state, { payload }: PayloadAction<AddAnswerPayloadType>) => {
       // I can mutate it because of Immer library under the hood
-      state.push(action.payload);
+      const newStoreAnswer = {
+        questionText: payload.question.question,
+        isAnsweredCorrectly: payload.question.correct_answer === payload.answer,
+      };
+
+      state.push(newStoreAnswer);
     },
   },
 });
