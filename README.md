@@ -17,7 +17,8 @@ Additionally, I had to adjust it to solve this particular problem.
 - cra
 - react
 - react-router
-- react-query
+- react-query (server-state library)
+- redux (client-state library)
 - axios
 - eslint + prettier + husky
 

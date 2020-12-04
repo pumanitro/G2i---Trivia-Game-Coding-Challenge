@@ -7,18 +7,21 @@ import { GlobalStyles } from './global/GlobalStyles/GlobalStyles';
 import { ErrorHandler } from './global/ErrorHandler/ErrorHandler';
 import { AppRouter } from './global/AppRouter/AppRouter';
 import { ReactQueryCacheConfig } from './global/ReactQueryCacheConfig/ReactQueryCacheConfig';
+import { Redux } from 'global/Redux/Redux';
 
 const App: FunctionComponent = () => (
-  <ThemeProvider theme={CoreTheme}>
-    <ReactQueryCacheConfig>
-      <Router>
-        <GlobalStyles />
-        <ErrorHandler>
-          <AppRouter />
-        </ErrorHandler>
-      </Router>
-    </ReactQueryCacheConfig>
-  </ThemeProvider>
+  <Redux>
+    <ThemeProvider theme={CoreTheme}>
+      <ReactQueryCacheConfig>
+        <Router>
+          <GlobalStyles />
+          <ErrorHandler>
+            <AppRouter />
+          </ErrorHandler>
+        </Router>
+      </ReactQueryCacheConfig>
+    </ThemeProvider>
+  </Redux>
 );
 
 export default App;
