@@ -5,12 +5,14 @@ import { StoreAnswerType } from 'global/Redux/Slices/answersSlice';
 import { ROUTING_KEYS } from '../../helpers/routingKeys';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
+import { clearAnswers } from 'global/Redux/Slices/answersSlice';
 
 type ScoreContentPropsType = {
   answers: StoreAnswerType[];
+  clearAnswers: () => void;
 };
 
-export const ScoreContent: FC<ScoreContentPropsType> = ({ answers }) => {
+export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers }) => {
   console.log(answers);
 
   // todo: make it as a selector:
@@ -27,19 +29,24 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers }) => {
       <h2>
         {score}/{answers.length}
       </h2>
-      {answers.map(answer => (
-        <div key={answer.questionText}>
+      {answers.map((answer, index) => (
+        <div key={index + answer.questionText}>
           {answer.isAnsweredCorrectly ? <span> + </span> : <span> - </span>}
           <span>{answer.questionText}</span>
         </div>
       ))}
-      <Link to={ROUTING_KEYS.HOME}>
+      <Link to={ROUTING_KEYS.HOME} onClick={clearAnswers}>
         <Button> PLAY AGAIN? </Button>
       </Link>
     </>
   );
 };
 
-export const Score = connect((state: RootState) => ({
-  answers: state.answers,
-}))(ScoreContent);
+export const Score = connect(
+  (state: RootState) => ({
+    answers: state.answers,
+  }),
+  {
+    clearAnswers,
+  }
+)(ScoreContent);

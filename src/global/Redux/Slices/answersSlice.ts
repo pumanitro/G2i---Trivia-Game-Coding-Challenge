@@ -24,7 +24,10 @@ export const answersSlice = createSlice({
 
       state.push(newStoreAnswer);
     },
+    clearAnswers: () => {
+      return [];
+    },
   },
 });
 
-export const { addAnswer } = answersSlice.actions;
+export const { addAnswer, clearAnswers } = answersSlice.actions;
