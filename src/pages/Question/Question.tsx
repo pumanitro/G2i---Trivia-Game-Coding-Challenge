@@ -1,20 +1,17 @@
 import React, { FC } from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { CACHE_KEYS } from 'helpers/cacheKeys';
-import { QuestionService } from 'services/QuestionService';
 import { QuestionType } from 'helpers/types';
+import { withQuestion } from './withQuestion';
 
-type QuestionParamsType = {
-  questionIndex: string;
+export type QuestionPropsType = {
+  questionIndex: number;
+  question: QuestionType;
 };
 
-export const Question: FC<{}> = () => {
-  const { questionIndex } = useParams<QuestionParamsType>();
-  const { data } = useQuery<QuestionType[]>(CACHE_KEYS.GET_QUESTIONS, QuestionService.getQuestions);
-
-  console.log(data);
+export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question }) => {
   console.log(questionIndex);
+  console.log(question);
 
   return <div>test</div>;
 };
+
+export const Question = withQuestion(QuestionContent);
