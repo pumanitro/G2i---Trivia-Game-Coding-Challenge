@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { ROUTING_KEYS } from 'helpers/routingKeys';
 import { QuestionType } from 'helpers/types';
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 import { addAnswer } from 'global/Redux/Slices/answersSlice';
 
 export type AnswerButtonPropsType = {
@@ -13,24 +13,33 @@ export type AnswerButtonPropsType = {
   question: QuestionType;
 };
 
-export const AnswerButton: FC<AnswerButtonPropsType> = ({ questionIndex, questionsAmount, isAnswerTrue, question }) => {
+export const AnswerButtonContent: FC<AnswerButtonPropsType & { addAnswer: () => void }> = ({
+  questionIndex,
+  questionsAmount,
+  isAnswerTrue,
+  addAnswer,
+}) => {
   const redirectionUrl =
     questionIndex + 1 === questionsAmount ? '/grand-finale' : ROUTING_KEYS.QUESTION(questionIndex + 1);
 
-  // I prefer this way than connect
-  const dispatch = useDispatch();
-  const dispatchAddAnswer = () => {
-    dispatch(
-      addAnswer({
-        question,
-        answer: isAnswerTrue ? 'True' : 'False',
-      })
-    );
-  };
-
   return (
-    <Link to={redirectionUrl} onClick={dispatchAddAnswer}>
+    <Link to={redirectionUrl} onClick={addAnswer}>
       <Button>{isAnswerTrue ? 'Yes' : 'No'}</Button>
     </Link>
   );
 };
+
+export const AnswerButton = connect(
+  null,
+  (dispatch, { question, isAnswerTrue }: AnswerButtonPropsType) => {
+    return {
+      addAnswer: () =>
+        dispatch(
+          addAnswer({
+            question,
+            answer: isAnswerTrue ? 'True' : 'False',
+          })
+        ),
+    };
+  }
+)(AnswerButtonContent);
