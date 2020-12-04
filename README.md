@@ -9,6 +9,10 @@ It is not external, available boilerplate.
 It is my own, I use to save time for project configuration for interview processes.
 Additionally, I had to adjust it to solve this particular problem.
 
+#### :warning: ⚠
+
+ReactQueryDevtools are turn on in development mode. Don't be surprised with some opened additional window.
+
 ## Technological stack choices
 
 - ant-design

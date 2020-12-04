@@ -13,11 +13,14 @@ type QuestionParamsType = {
 
 export const withQuestion = (QuestionComponent: FC<QuestionPropsType>) => () => {
   const { questionIndex } = useParams<QuestionParamsType>();
-  const { isLoading, data } = useQuery<QuestionType[]>(CACHE_KEYS.GET_QUESTIONS, QuestionService.getQuestions);
+  const { isLoading, data, isFetching } = useQuery<QuestionType[]>(
+    CACHE_KEYS.GET_QUESTIONS,
+    QuestionService.getQuestions
+  );
 
   const castedQuestionIndex = Number(questionIndex);
 
-  if (isLoading || !data) {
+  if (isLoading || !data || isFetching) {
     return <Spinner />;
   }
 

@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { ReactQueryDevtools } from 'react-query-devtools';
 
 import { CoreTheme } from './global/Themes/CoreTheme';
 import { GlobalStyles } from './global/GlobalStyles/GlobalStyles';
@@ -14,6 +15,7 @@ const App: FunctionComponent = () => (
     <ThemeProvider theme={CoreTheme}>
       <ReactQueryCacheConfig>
         <Router>
+          <ReactQueryDevtools initialIsOpen />
           <GlobalStyles />
           <ErrorHandler>
             <AppRouter />
