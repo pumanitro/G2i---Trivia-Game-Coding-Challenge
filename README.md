@@ -11,6 +11,12 @@ Additionally, I had to adjust it to solve this particular problem.
 
 ⚠ ReactQueryDevtools are turn on in development mode. Don't be surprised with some opened additional window.
 
+## How it looks
+
+![Home Page](./Home.png)
+![Question Page](./Question.png)
+![Score Page](./Score.png)
+
 ## How to run it
 
 `yarn install` then `yarn start`
