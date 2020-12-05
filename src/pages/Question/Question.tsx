@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { QuestionType } from 'helpers/types';
 import { withQuestion } from './withQuestion';
-import { Card, Progress } from 'antd';
+import { Progress } from 'antd';
 import { AnswerButton } from './AnswerButton/AnswerButton';
-import { decode } from 'he';
-import { StyledQuestionCard } from './Question.s';
+import { ProgressWrapper, StyledQuestionCard } from './Question.s';
+import { QuestionCard } from './QuestionCard/QuestionCard';
 
 export type QuestionPropsType = {
   questionIndex: number;
@@ -16,11 +16,11 @@ export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question
   return (
     <StyledQuestionCard>
       <h1>{question.category}</h1>
-      <Card> {decode(question.question)} </Card>
-      <div>
+      <QuestionCard questionText={question.question} />
+      <ProgressWrapper>
         {questionIndex + 1} of {questionsAmount}
-      </div>
-      <Progress percent={(questionIndex / questionsAmount) * 100} showInfo={false} />
+        <Progress percent={(questionIndex / questionsAmount) * 100} showInfo={false} />
+      </ProgressWrapper>
       <AnswerButton
         questionIndex={questionIndex}
         questionsAmount={questionsAmount}
