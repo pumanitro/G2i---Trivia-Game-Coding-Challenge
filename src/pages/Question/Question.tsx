@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { QuestionType } from 'helpers/types';
 import { withQuestion } from './withQuestion';
-import { Card } from 'antd';
+import { Card, Progress } from 'antd';
 import { AnswerButton } from './AnswerButton/AnswerButton';
 import { decode } from 'he';
 
@@ -22,6 +22,7 @@ export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question
       <div>
         {questionIndex + 1} of {questionsAmount}
       </div>
+      <Progress percent={(questionIndex / questionsAmount) * 100} showInfo={false} />
       <AnswerButton
         questionIndex={questionIndex}
         questionsAmount={questionsAmount}
