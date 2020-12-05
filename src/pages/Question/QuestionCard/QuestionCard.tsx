@@ -10,7 +10,7 @@ export const QuestionCard: FC<QuestionCardType> = ({ questionText }) => {
   return (
     <QuestionCardWrapper>
       <QuestionMarkIcon />
-      <h5>{decode(questionText)}</h5>
+      <h3>{decode(questionText)}</h3>
     </QuestionCardWrapper>
   );
 };
