@@ -11,7 +11,9 @@ export const HomeContent: FunctionComponent = () => {
       <h3>You will be presented with 10 True or False questions.</h3>
       <h3>Can you score 100%?</h3>
       <Link to={ROUTING_KEYS.QUESTION(0)}>
-        <Button size="large"> BEGIN </Button>
+        <Button size="large" type="primary">
+          BEGIN
+        </Button>
       </Link>
     </Card>
   );

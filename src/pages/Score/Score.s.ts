@@ -3,6 +3,7 @@ import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 export const ListWrapper = styled.div`
   width: 100%;
+  margin-bottom: 20px;
 `;
 
 export const CorrectAnswerIcon = styled(CheckCircleOutlined)`

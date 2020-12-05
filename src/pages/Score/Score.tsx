@@ -48,7 +48,9 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers,
       </ListWrapper>
 
       <Link to={ROUTING_KEYS.HOME} onClick={onPlayAgainClick}>
-        <Button> PLAY AGAIN? </Button>
+        <Button size="large" type="primary">
+          PLAY AGAIN
+        </Button>
       </Link>
     </>
   );
