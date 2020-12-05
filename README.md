@@ -22,7 +22,7 @@ Additionally, I had to adjust it to solve this particular problem.
 - react-query (server-state library)
 - redux (client-state library)
 - axios
-- eslint + prettier + husky
+- eslint + prettier + husky (because I love clean code <3)
 
 ## Directories structure
 

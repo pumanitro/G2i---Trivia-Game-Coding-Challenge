@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.2",
     "@types/jest": "^24.0.20",
     "@types/lodash": "^4.14.165",
     "@types/node": "^12.11.7",
