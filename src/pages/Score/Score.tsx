@@ -39,7 +39,7 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers,
           <StyledListItem>
             <List.Item.Meta
               avatar={answer.isAnsweredCorrectly ? <CorrectAnswerIcon /> : <IncorrectAnswerIcon />}
-              title={<h3>{'Title'}</h3>}
+              title={<h3>{answer.questionCategory}</h3>}
               description={answer.questionText}
             />
           </StyledListItem>

@@ -9,6 +9,7 @@ type AddAnswerPayloadType = {
 
 export type StoreAnswerType = {
   questionText: string;
+  questionCategory: string;
   isAnsweredCorrectly: boolean;
 };
 
@@ -20,6 +21,7 @@ export const answersSlice = createSlice({
       // I can mutate it because of Immer library under the hood
       const newStoreAnswer = {
         questionText: decode(payload.question.question),
+        questionCategory: decode(payload.question.category),
         isAnsweredCorrectly: payload.question.correct_answer === payload.answer,
       };
 
