@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AnswerType, QuestionType } from 'helpers/types';
+import { decode } from 'he';
 
 type AddAnswerPayloadType = {
   question: QuestionType;
@@ -18,7 +19,7 @@ export const answersSlice = createSlice({
     addAnswer: (state, { payload }: PayloadAction<AddAnswerPayloadType>) => {
       // I can mutate it because of Immer library under the hood
       const newStoreAnswer = {
-        questionText: payload.question.question,
+        questionText: decode(payload.question.question),
         isAnsweredCorrectly: payload.question.correct_answer === payload.answer,
       };
 
