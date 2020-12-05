@@ -4,6 +4,7 @@ import { withQuestion } from './withQuestion';
 import { Card, Progress } from 'antd';
 import { AnswerButton } from './AnswerButton/AnswerButton';
 import { decode } from 'he';
+import { StyledQuestionCard } from './Question.s';
 
 export type QuestionPropsType = {
   questionIndex: number;
@@ -12,11 +13,8 @@ export type QuestionPropsType = {
 };
 
 export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question, questionsAmount }) => {
-  console.log(questionIndex);
-  console.log(question);
-
   return (
-    <Card>
+    <StyledQuestionCard>
       <h1>{question.category}</h1>
       <Card> {decode(question.question)} </Card>
       <div>
@@ -30,7 +28,7 @@ export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question
         isAnswerTrue={false}
       />
       <AnswerButton questionIndex={questionIndex} questionsAmount={questionsAmount} question={question} isAnswerTrue />
-    </Card>
+    </StyledQuestionCard>
   );
 };
 

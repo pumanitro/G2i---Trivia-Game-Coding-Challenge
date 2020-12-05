@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { RootState } from 'global/Redux/rootReducer';
 import { StoreAnswerType } from 'global/Redux/Slices/answersSlice';
 import { ROUTING_KEYS } from '../../helpers/routingKeys';
-import { Button } from 'antd';
+import { Button, List } from 'antd';
 import { Link } from 'react-router-dom';
 import { clearAnswers } from 'global/Redux/Slices/answersSlice';
 import { queryCache } from 'react-query';
 import { CACHE_KEYS } from 'helpers/cacheKeys';
 import { CircleScore } from './CircleScore/CircleScore';
 import { scoreSelector } from 'global/Redux/Selectors/aswerSelectors';
+import { CorrectAnswerIcon, IncorrectAnswerIcon, StyledListItem } from './Score.s';
 
 type ScoreContentPropsType = {
   answers: StoreAnswerType[];
@@ -26,15 +27,25 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers,
 
   return (
     <>
-      <h1>You scored</h1>
+      <h1>
+        You scored {score}/{answers.length}
+      </h1>
       <CircleScore answers={answers} score={score} />
 
-      {answers.map((answer, index) => (
-        <div key={index + answer.questionText}>
-          {answer.isAnsweredCorrectly ? <span> + </span> : <span> - </span>}
-          <span>{answer.questionText}</span>
-        </div>
-      ))}
+      <List
+        itemLayout="horizontal"
+        dataSource={answers}
+        renderItem={answer => (
+          <StyledListItem>
+            <List.Item.Meta
+              avatar={answer.isAnsweredCorrectly ? <CorrectAnswerIcon /> : <IncorrectAnswerIcon />}
+              title={<h3>{'Title'}</h3>}
+              description={answer.questionText}
+            />
+          </StyledListItem>
+        )}
+      />
+
       <Link to={ROUTING_KEYS.HOME} onClick={onPlayAgainClick}>
         <Button> PLAY AGAIN? </Button>
       </Link>
