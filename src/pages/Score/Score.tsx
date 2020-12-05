@@ -28,7 +28,7 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers,
   return (
     <>
       <h1>
-        You scored {score}/{answers.length}
+        You scored {score}/{answers.length}.
       </h1>
       <CircleScore answers={answers} score={score} />
 

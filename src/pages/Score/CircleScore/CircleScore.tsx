@@ -9,7 +9,7 @@ type CircleScoreType = {
 };
 
 export const CircleScore: FC<CircleScoreType> = ({ score, answers }) => {
-  const percentageScore = (score / answers.length) * 100;
+  const percentageScore = Number(((score / answers.length) * 100).toFixed(2));
 
   return (
     <CircleScoreWrapper>
