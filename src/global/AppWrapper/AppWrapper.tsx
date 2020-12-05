@@ -7,4 +7,11 @@ export const AppWrapper = styled.div`
 
   min-height: 100vh;
   justify-content: center;
+
+  margin: auto;
+  padding: 24px;
+  width: auto;
+  @media (min-width: 768px) {
+    width: 600px;
+  }
 `;

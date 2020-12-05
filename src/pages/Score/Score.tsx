@@ -10,7 +10,7 @@ import { queryCache } from 'react-query';
 import { CACHE_KEYS } from 'helpers/cacheKeys';
 import { CircleScore } from './CircleScore/CircleScore';
 import { scoreSelector } from 'global/Redux/Selectors/aswerSelectors';
-import { CorrectAnswerIcon, IncorrectAnswerIcon, StyledListItem } from './Score.s';
+import { CorrectAnswerIcon, IncorrectAnswerIcon, ListWrapper } from './Score.s';
 
 type ScoreContentPropsType = {
   answers: StoreAnswerType[];
@@ -31,20 +31,21 @@ export const ScoreContent: FC<ScoreContentPropsType> = ({ answers, clearAnswers,
         You scored {score}/{answers.length}.
       </h1>
       <CircleScore answers={answers} score={score} />
-
-      <List
-        itemLayout="horizontal"
-        dataSource={answers}
-        renderItem={answer => (
-          <StyledListItem>
-            <List.Item.Meta
-              avatar={answer.isAnsweredCorrectly ? <CorrectAnswerIcon /> : <IncorrectAnswerIcon />}
-              title={<h3>{answer.questionCategory}</h3>}
-              description={answer.questionText}
-            />
-          </StyledListItem>
-        )}
-      />
+      <ListWrapper>
+        <List
+          itemLayout="horizontal"
+          dataSource={answers}
+          renderItem={answer => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={answer.isAnsweredCorrectly ? <CorrectAnswerIcon /> : <IncorrectAnswerIcon />}
+                title={answer.questionCategory}
+                description={answer.questionText}
+              />
+            </List.Item>
+          )}
+        />
+      </ListWrapper>
 
       <Link to={ROUTING_KEYS.HOME} onClick={onPlayAgainClick}>
         <Button> PLAY AGAIN? </Button>

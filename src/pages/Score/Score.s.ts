@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { List } from 'antd';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
-export const StyledListItem = styled(List.Item)`
-  width: 550px;
+export const ListWrapper = styled.div`
+  width: 100%;
 `;
 
 export const CorrectAnswerIcon = styled(CheckCircleOutlined)`
