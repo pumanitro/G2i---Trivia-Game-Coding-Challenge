@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { queryCache } from 'react-query';
+import { queryCache } from 'global/ReactQueryCacheConfig/ReactQueryCacheConfig';
 import { CACHE_KEYS } from 'helpers/cacheKeys';
 import { QuestionService } from 'services/QuestionService';
 

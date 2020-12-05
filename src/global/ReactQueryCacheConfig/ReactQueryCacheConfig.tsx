@@ -1,10 +1,11 @@
 import { QueryCache, ReactQueryCacheProvider } from 'react-query';
 import React, { FC } from 'react';
 
-const queryCache = new QueryCache({
+export const queryCache = new QueryCache({
   defaultConfig: {
     queries: {
       refetchOnWindowFocus: false,
+      staleTime: 5000,
     },
   },
 });

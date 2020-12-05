@@ -13,6 +13,7 @@ type QuestionParamsType = {
 
 export const withQuestion = (QuestionComponent: FC<QuestionPropsType>) => () => {
   const { questionIndex } = useParams<QuestionParamsType>();
+
   const { isLoading, data, isFetching } = useQuery<QuestionType[]>(
     CACHE_KEYS.GET_QUESTIONS,
     QuestionService.getQuestions
