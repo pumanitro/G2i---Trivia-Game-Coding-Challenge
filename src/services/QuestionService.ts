@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getUrlBuilder } from '../helpers/buildUrl';
+import { getUrlBuilder } from 'helpers/buildUrl';
 
 const BASE_URL = 'https://opentdb.com/';
 

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { RootState } from 'global/Redux/rootReducer';
 import { StoreAnswerType } from 'global/Redux/Slices/answersSlice';
-import { ROUTING_KEYS } from '../../helpers/routingKeys';
+import { ROUTING_KEYS } from 'helpers/routingKeys';
 import { Button, List } from 'antd';
 import { Link } from 'react-router-dom';
 import { clearAnswers } from 'global/Redux/Slices/answersSlice';
