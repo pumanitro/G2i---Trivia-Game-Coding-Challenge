@@ -9,6 +9,7 @@ import { ErrorHandler } from './global/ErrorHandler/ErrorHandler';
 import { AppRouter } from './global/AppRouter/AppRouter';
 import { ReactQueryCacheConfig } from './global/ReactQueryCacheConfig/ReactQueryCacheConfig';
 import { Redux } from 'global/Redux/Redux';
+import { AppWrapper } from 'global/AppWrapper/AppWrapper';
 
 const App: FunctionComponent = () => (
   <Redux>
@@ -18,7 +19,9 @@ const App: FunctionComponent = () => (
           <ReactQueryDevtools initialIsOpen />
           <GlobalStyles />
           <ErrorHandler>
-            <AppRouter />
+            <AppWrapper>
+              <AppRouter />
+            </AppWrapper>
           </ErrorHandler>
         </Router>
       </ReactQueryCacheConfig>

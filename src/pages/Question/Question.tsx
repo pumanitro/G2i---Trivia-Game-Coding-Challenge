@@ -3,6 +3,7 @@ import { QuestionType } from 'helpers/types';
 import { withQuestion } from './withQuestion';
 import { Card } from 'antd';
 import { AnswerButton } from './AnswerButton/AnswerButton';
+import { decode } from 'he';
 
 export type QuestionPropsType = {
   questionIndex: number;
@@ -15,9 +16,9 @@ export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question
   console.log(question);
 
   return (
-    <div>
+    <Card>
       <h1>{question.category}</h1>
-      <Card> {question.question} </Card>
+      <Card> {decode(question.question)} </Card>
       <div>
         {questionIndex + 1} of {questionsAmount}
       </div>
@@ -28,7 +29,7 @@ export const QuestionContent: FC<QuestionPropsType> = ({ questionIndex, question
         isAnswerTrue={false}
       />
       <AnswerButton questionIndex={questionIndex} questionsAmount={questionsAmount} question={question} isAnswerTrue />
-    </div>
+    </Card>
   );
 };
 
