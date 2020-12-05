@@ -11,6 +11,10 @@ Additionally, I had to adjust it to solve this particular problem.
 
 ⚠ ReactQueryDevtools are turn on in development mode. Don't be surprised with some opened additional window.
 
+## How to run it
+
+`yarn install` then `yarn start`
+
 ## Technological stack choices
 
 - ant-design
